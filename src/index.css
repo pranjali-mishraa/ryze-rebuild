@@ -3,5 +3,6 @@
 @tailwind utilities;
 
 body {
-  @apply bg-white text-gray-800;
+  @apply bg-background text-muted;
 }
+

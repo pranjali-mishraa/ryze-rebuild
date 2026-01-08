@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
  export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,18 +20,14 @@ import { Link } from "react-router-dom";
         </nav>
 
     
-        <button className="hidden md:block bg-primary text-white px-5 py-2 rounded-lg">
-          Book a Demo
-        </button>
+        <Button >Get Started</Button>
 
   
-        <button
-          className="md:hidden text-3xl"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle Menu"
-        >
-          ☰
-        </button>
+        <Button onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle Menu">
+            =
+           </Button>
+        
       </div>
 
      
@@ -46,7 +43,7 @@ import { Link } from "react-router-dom";
             Pricing
           </Link>
 
-          <button className="w-full bg-primary text-white py-2 rounded-lg">
+          <button className="bg-primary text-white">
             Book a Demo
           </button>
         </div>

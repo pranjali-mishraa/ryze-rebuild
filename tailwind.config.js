@@ -6,11 +6,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#4F46E5",
+        background: "#FAF7F2",   
+        primary: "#2563EB",      
+        heading: "#0F172A",      
+        muted: "#475569",        
       },
     },
   },
   plugins: [],
-}
+};
 
 
