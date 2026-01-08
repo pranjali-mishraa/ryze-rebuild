@@ -1,29 +1,30 @@
 import { Linkedin, Twitter, Github } from "lucide-react";
-
+import Button from "./Tools/Button";
 
 function Hero() {
   return (
     <section className="px-6 py-24">
       <div className="max-w-7xl mx-auto grid gap-16 md:grid-cols-2 items-center">
         
-        {/* LEFT SIDE */}
-        <div>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight text-heading">
-            Grow your business <br />
-            with <span className="text-primary">AI-powered growth</span>
-          </h1>
+      
+        <div className="flex flex-col gap-8 max-w-xl">
+  <h1 className="text-4xl md:text-5xl font-bold leading-snug text-heading">
+    Grow your business <br />
+    with <span className="text-primary">AI-powered growth</span>
+  </h1>
 
-          <p className="mt-6 text-lg text-muted max-w-xl">
-            Ryze helps teams automate workflows, generate quality leads,
-            and scale faster using intelligent AI solutions.
-          </p>
+  <p className="text-lg text-muted leading-relaxed">
+    Ryze helps teams automate workflows, generate quality leads,
+    and scale faster using intelligent AI solutions.
+  </p>
 
-          <button className="mt-10 bg-primary text-white px-8 py-3 rounded-lg text-lg font-medium hover:opacity-90 transition">
-            Get Started
-          </button>
-        </div>
+  <div className="pt-4">
+    <Button>Get Started</Button>
+  </div>
+</div>
 
-        {/* RIGHT SIDE */}
+
+      
         <div className="flex md:justify-end gap-6">
           <a
             href="#"

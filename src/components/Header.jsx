@@ -1,55 +1,82 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import Button from "./Button";
 
- export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import Button from "./Tools/Button";
+
+export default function Header() {
+  const [open, setOpen] = useState(false);
 
   return (
-    <header className="border-b sticky top-0 bg-white z-50">
+    <header
+      className="sticky top-0 z-50 
+                 bg-white/70 backdrop-blur-md 
+                 border-b border-black/10 shadow-sm"
+    >
       <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-        
-       
-        <h1 className="text-2xl font-bold text-primary">Ryze</h1>
 
-    
+        {/* Logo */}
+        <h1 className="text-3xl md:text-4xl font-extrabold text-heading tracking-tight">
+          Ryze
+        </h1>
+
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 font-medium">
-          <Link to="/" className="hover:text-primary">Home</Link>
-          <Link to="/features" className="hover:text-primary">Features</Link>
-          <Link to="/pricing" className="hover:text-primary">Pricing</Link>
-        </nav>
-
-    
-        <Button >Get Started</Button>
-
-  
-        <Button onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle Menu">
-            =
-           </Button>
-        
-      </div>
-
-     
-      {menuOpen && (
-        <div className="md:hidden bg-white border-t px-6 py-4 space-y-4">
-          <Link to="/" onClick={() => setMenuOpen(false)} className="block">
+          <Link to="/" className="hover:text-primary transition">
             Home
           </Link>
-          <Link to="/features" onClick={() => setMenuOpen(false)} className="block">
-            Features
+          <Link to="/features" className="hover:text-primary transition">
+            About Us
           </Link>
-          <Link to="/pricing" onClick={() => setMenuOpen(false)} className="block">
-            Pricing
+          <Link to="/pricing" className="hover:text-primary transition">
+            Case Study
+          </Link>
+        </nav>
+
+        {/* Desktop CTA */}
+        <div className="hidden md:block">
+          <Button>Get Started</Button>
+        </div>
+
+        {/* Mobile Hamburger */}
+        <button
+          className="md:hidden text-2xl font-bold"
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle Menu"
+        >
+          ☰
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {open && (
+        <div className="md:hidden bg-background border-t px-6 py-6 space-y-4">
+          <Link
+            to="/"
+            onClick={() => setOpen(false)}
+            className="block font-medium"
+          >
+            Home
           </Link>
 
-          <button className="bg-primary text-white">
-            Book a Demo
-          </button>
+          <Link
+            to="/features"
+            onClick={() => setOpen(false)}
+            className="block font-medium"
+          >
+            About Us
+          </Link>
+
+          <Link
+            to="/pricing"
+            onClick={() => setOpen(false)}
+            className="block font-medium"
+          >
+            Case Study
+          </Link>
+
+          <Button>Get Started</Button>
         </div>
       )}
     </header>
   );
 }
-
-
