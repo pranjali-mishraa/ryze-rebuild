@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 
 const slides = [
   "/carousel/slide1.png",
@@ -9,37 +9,47 @@ const slides = [
 ];
 
 export default function CenterCarousel() {
-  const [current, setCurrent] = useState(0);
+  const scrollRef = useRef(null);
+  const infiniteSlides = [...slides, ...slides];
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, 3000); // auto-scroll
+    const container = scrollRef.current;
+    if (!container) return;
 
-    return () => clearInterval(interval);
+    let animationFrameId;
+    const speed = 2.2; // adjust if needed
+
+    const scroll = () => {
+      container.scrollLeft += speed;
+
+      // Infinite loop
+      if (container.scrollLeft >= container.scrollWidth / 2) {
+        container.scrollLeft = 0;
+      }
+
+      animationFrameId = requestAnimationFrame(scroll);
+    };
+
+    animationFrameId = requestAnimationFrame(scroll);
+
+    return () => cancelAnimationFrame(animationFrameId);
   }, []);
 
   return (
-    <div className="w-full flex justify-center py-16 overflow-hidden">
-      <div className="flex gap-8 items-center transition-transform duration-500">
-        {slides.map((slide, index) => {
-          const isActive = index === current;
-
-          return (
-            <div
-              key={index}
-              className={`transition-all duration-500 ${
-                isActive ? "scale-110" : "scale-90 opacity-70"
-              }`}
-            >
-              <img
-                src={slide}
-                alt="slide"
-                className="w-[240px] h-[160px] object-cover rounded-xl shadow-lg"
-              />
-            </div>
-          );
-        })}
+    <div className="w-full py-20 overflow-hidden">
+      <div
+        ref={scrollRef}
+        className="flex gap-24 overflow-x-hidden items-center"
+      >
+        {infiniteSlides.map((slide, index) => (
+          <div key={index} className="flex-shrink-0">
+            <img
+              src={slide}
+              alt="logo"
+              className="w-[240px] h-[160px] object-contain rounded-xl shadow-md"
+            />
+          </div>
+        ))}
       </div>
     </div>
   );
