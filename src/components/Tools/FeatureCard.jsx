@@ -6,7 +6,7 @@ export default function FeatureCard({ title, description, image }) {
                  border border-black/5"
     >
      
-      {/* {image && (
+      {image && (
         <div className="mb-6">
           <img
             src={image}
@@ -14,7 +14,7 @@ export default function FeatureCard({ title, description, image }) {
             className="w-full h-40 object-contain rounded-lg"
           />
         </div>
-      )} */}
+      )}
 
       <h3 className="text-xl font-semibold text-heading mb-3">
         {title}

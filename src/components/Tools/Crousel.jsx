@@ -1,28 +1,19 @@
 import { useRef, useEffect } from "react";
-import img1 from "../assets/Images/img1.png";
-import img2 from "../assets/Images/img2.png";
-import img3 from "../assets/Images/img3.png";
-import img4 from "../assets/Images/img4.png";
-import img5 from "../assets/Images/img5.png";
-const slides = [
-  img1,img2,img3,img4,img5
-];
 
-export default function CenterCarousel() {
+export default function Crousel({ images = [], speed = 2 }) {
   const scrollRef = useRef(null);
-  const infiniteSlides = [...slides, ...slides];
+  const infiniteSlides = [...images, ...images];
 
   useEffect(() => {
     const container = scrollRef.current;
     if (!container) return;
 
     let animationFrameId;
-    const speed = 2.2; // adjust if needed
 
     const scroll = () => {
       container.scrollLeft += speed;
 
-      // Infinite loop
+      // Infinite loop reset
       if (container.scrollLeft >= container.scrollWidth / 2) {
         container.scrollLeft = 0;
       }
@@ -33,7 +24,7 @@ export default function CenterCarousel() {
     animationFrameId = requestAnimationFrame(scroll);
 
     return () => cancelAnimationFrame(animationFrameId);
-  }, []);
+  }, [speed]);
 
   return (
     <div className="w-full py-20 overflow-hidden">
@@ -41,12 +32,12 @@ export default function CenterCarousel() {
         ref={scrollRef}
         className="flex gap-24 overflow-x-hidden items-center"
       >
-        {infiniteSlides.map((slide, index) => (
+        {infiniteSlides.map((img, index) => (
           <div key={index} className="flex-shrink-0">
             <img
-              src={slide}
-              alt="logo"
-              className="w-[240px] h-[160px] object-contain rounded-xl shadow-md"
+              src={img}
+              alt="carousel"
+              className="w-[400px] h-[400px] object-contain rounded-xl shadow-md"
             />
           </div>
         ))}

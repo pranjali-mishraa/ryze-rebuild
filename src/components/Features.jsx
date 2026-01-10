@@ -3,9 +3,11 @@ import FeatureCard from "./Tools/FeatureCard";
 import { useRef, useEffect } from "react";
 
 
-// import optimizeImg from "../assets/optimize.png";
-// import creativeImg from "../assets/creative.png";
-// import scaleImg from "../assets/scale.png";
+import data1 from "../assets/Images/data1.png";
+import data2 from "../assets/Images/data2.png";
+import data3 from "../assets/Images/data3.png";
+import data4 from "../assets/Images/data4.png";
+import data5 from "../assets/Images/data5.png";
 
 export default function Features() {
   const scrollRef = useRef(null);
@@ -42,29 +44,31 @@ export default function Features() {
       title: "AI Optimization",
       description:
         "Identify underperforming areas and unlock hidden opportunities .",
-    //   image: optimizeImg,
+       image: data1,
     },
     {
       title: "Creative Intelligence",
       description:
         "Analyze creatives, messaging, and formats before scaling your campaigns.",
-    //   image: creativeImg,
+  image: data2,
     },
     {
       title: "Smart Scaling",
       description:
         "Automatically reallocate budgets to channels and strategies that convert.",
-    //   image: scaleImg,
+   image: data3,
     },
     {
       title: "Performance Monitoring",
       description:
         "Track KPIs and performance trends in real time across channels.",
+        image: data4,
     },
     {
       title: "Audience Insights",
       description:
         "Understand user behavior and intent with AI-powered audience analysis.",
+        image: data5,
     },
   ];
 

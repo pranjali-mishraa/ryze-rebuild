@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import Button from "./Tools/Button";
-
+import AboutUs from "./AboutUs/AboutUs";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
@@ -24,10 +24,10 @@ export default function Header() {
           <Link to="/" className="hover:text-primary transition">
             Home
           </Link>
-          <Link to="/features" className="hover:text-primary transition">
+          <Link to="/aboutUs" className="hover:text-primary transition">
             About Us
           </Link>
-          <Link to="/pricing" className="hover:text-primary transition">
+          <Link to="/caseStudy" className="hover:text-primary transition">
             Case Study
           </Link>
         </nav>
@@ -59,7 +59,7 @@ export default function Header() {
           </Link>
 
           <Link
-            to="/features"
+            to="./AboutUs/AboutUs"
             onClick={() => setOpen(false)}
             className="block font-medium"
           >
