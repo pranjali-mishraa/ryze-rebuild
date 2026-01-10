@@ -1,9 +1,9 @@
 import { Linkedin, Twitter, Github } from "lucide-react";
 import Button from "./Tools/Button";
-
+import HeroSecSoMedia from "./Tools/HeroSecSoMedia";
 function Hero() {
   return (
-    <section className="px-6 py-24">
+    <section className="px-6 pt-24 pb-12">
       <div className="max-w-7xl mx-auto grid gap-16 md:grid-cols-2 items-center">
         
       
@@ -26,29 +26,18 @@ function Hero() {
 
       
         <div className="flex md:justify-end gap-6">
-          <a
-            href="#"
-            className="p-4 rounded-xl border hover:bg-white transition"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={26} className="text-heading" />
-          </a>
+          <HeroSecSoMedia href="https://linkedin.com" label="LinkedIn">
+  <Linkedin size={26} className="text-heading" />
+</HeroSecSoMedia>
 
-          <a
-            href="#"
-            className="p-4 rounded-xl border hover:bg-white transition"
-            aria-label="Twitter"
-          >
-            <Twitter size={26} className="text-heading" />
-          </a>
+<HeroSecSoMedia href="https://twitter.com" label="Twitter">
+  <Twitter size={26} className="text-heading" />
+</HeroSecSoMedia>
 
-          <a
-            href="#"
-            className="p-4 rounded-xl border hover:bg-white transition"
-            aria-label="GitHub"
-          >
-            <Github size={26} className="text-heading" />
-          </a>
+<HeroSecSoMedia href="https://github.com" label="GitHub">
+  <Github size={26} className="text-heading" />
+</HeroSecSoMedia>
+
         </div>
 
       </div>

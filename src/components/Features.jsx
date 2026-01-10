@@ -1,5 +1,5 @@
-import FeatureCard from "./Tools/FeatureCard";
 
+import FeatureCard from "./Tools/FeatureCard";
 import { useRef, useEffect } from "react";
 
 
@@ -72,7 +72,8 @@ export default function Features() {
 
 
   return (
-    <section className="px-6 py-28 bg-background">
+    <section className="px-6 py-8 bg-background">
+
       <div className="max-w-7xl mx-auto">
 
         {/* Heading */}
